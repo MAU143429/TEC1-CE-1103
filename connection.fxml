@@ -10,7 +10,7 @@
       <Pane prefHeight="273.0" prefWidth="411.0">
          <children>
             <Button fx:id="BTNCNT" layoutX="147.0" layoutY="219.0" mnemonicParsing="false" onAction="#pressButton1" prefHeight="25.0" prefWidth="104.0" text="Start Server" />
-            <TextArea fx:id="PORT" layoutX="99.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0" />
+            <TextArea fx:id="port" layoutX="99.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0" />
             <Text layoutX="154.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENTER PORT" textAlignment="CENTER" wrappingWidth="90.1015625" />
          </children>
       </Pane>

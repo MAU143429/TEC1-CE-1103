@@ -1,26 +1,29 @@
 package Server;
 import java.net.*;
 import java.io.*;
-import javafx.scene.control.*;
+
 
 
 
 public class Server extends Thread
 {
-    public TextArea port;
     private ServerSocket server;
     private Socket socket;
     private DataInputStream in;
+    int port;
+
+    public Server (int port2){
+        port = port2;
 
 
 
+    }
     @Override
     public void run() {
         try {
-            String port1 = port.getText();
-            int port2 = Integer.parseInt(port1);
-            server = new ServerSocket(port2);
-            System.out.println("Servidor Iniciado en:" + port2);
+            System.out.println("hilo iniciado");
+            server = new ServerSocket(port);
+            System.out.println("Servidor Iniciado en:" + port);
             System.out.println("Esperando cliente");
             socket = new Socket();
             socket = server.accept();
