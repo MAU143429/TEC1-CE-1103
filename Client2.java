@@ -4,46 +4,51 @@ package sample;
 import java.io.*;
 import java.net.*;
 
-
-    public class Client2 extends Thread {
-
-
-        int port;
-        public Client2(int port5) {
-            port = port5;
-        }
-
-        private Socket socket1;
+/**
+ * this class create a client and connect to server port using sockets.
+ * i used threads and encapsulated some  variable, with help from constructor i used a port parameter to connect with server
+ */
+    public class Client2 {
+        private Socket s;
         private DataInputStream in;
         private DataOutputStream out;
+        /**
+         *in run method i used inheritance from Thread class, then i connect to local host and created a socket that allowed me to communicate
+         * with a port to transfers a string.I used try catch to avoid error
+         */
 
-        @Override
-        public void run() {
-            try {
-                socket1 = new Socket("127.0.0.1", port);
-                System.out.println("connected");
+        public Client2(String address, int port){
+            try{
+                s = new Socket(address, port);
+                System.out.println("Connected");
 
                 in = new DataInputStream(System.in);
-                out = new DataOutputStream(socket1.getOutputStream());
-            } catch (Exception e) {
+                out = new DataOutputStream(s.getOutputStream());
+            }catch(Exception e){
                 System.out.println(e.getMessage());
             }
 
-            String line = "";
-            while (!line.equals("exit")) {
-                try {
+            String line ="";
+            while(!line.equals("Exit")){
+                try{
 
                     line = in.readLine();
                     out.writeUTF(line);
 
-                } catch (Exception e) {
+                }catch (Exception e){
                     System.out.println(e.getMessage());
                 }
             }
 
         }
-    }
 
+        public static void main(String[] args) {
+            Client2 client = new Client2("127.0.0.1",4433);
+
+        }
+
+
+    }
 
 
 
