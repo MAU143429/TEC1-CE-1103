@@ -2,7 +2,9 @@ package Server;
 import java.net.*;
 import java.io.*;
 
-
+/**
+ * One more time use inheritance to apply threads and encapsulated variable
+ */
 
 
 public class Server extends Thread
@@ -12,22 +14,31 @@ public class Server extends Thread
     private DataInputStream in;
     int port;
 
+    /** the class created a server in one determinate port, then when now connection
+     * established the client can to send message to server.
+     *i used constructor to send parameter of port
+     */
     public Server (int port2){
         port = port2;
 
 
 
     }
+
+    /**
+     * i used while to always keep server started and only stop server connection when you send message "EXIT"
+     *
+     */
     @Override
     public void run() {
         try {
-            System.out.println("hilo iniciado");
+
             server = new ServerSocket(port);
-            System.out.println("Servidor Iniciado en:" + port);
-            System.out.println("Esperando cliente");
+            System.out.println("Server start in port:" + port);
+            System.out.println("Waiting for client...");
             socket = new Socket();
             socket = server.accept();
-            System.out.println("Cliente conectado");
+            System.out.println("Client Connect");
 
             in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
             String line = " ";
