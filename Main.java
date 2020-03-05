@@ -1,6 +1,5 @@
 package sample;
 
-import Server.Server;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +7,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-
+/**
+ * This class start a interface for client and established the parameters of the window , included size and name.
+ * In this class i apply inheritance  with extends method
+ */
 public class Main extends Application {
 
     @Override
